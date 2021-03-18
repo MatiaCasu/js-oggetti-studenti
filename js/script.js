@@ -48,25 +48,29 @@ $(function(){
   /* /Ciclare su tutti gli studenti e stampare per ognuno di essi, nome e cognome. */
 
   /* L’utente aggiunge un nuovo oggetto studente con: nome, cognome e età con 3 prompt*/
-  function aggiungiStudente(array){
-    var nomeU = prompt("Aggiungi nome");
-    var cognomeU = prompt("Aggiungi cognome");
-    var etaU = parseInt(prompt("Aggiungi età"));
-    var nuovoStudente = {
-      nome : nomeU,
-      cognome : cognomeU,
-      eta: etaU
-    }
-    array.push(nuovoStudente);
-  }
-
   $("button.add").click(
     function(){
-      aggiungiStudente(studenti);
-      console.log(studenti);
+      var nomeU = prompt("Aggiungi nome");
+      var cognomeU = prompt("Aggiungi cognome");
+      var etaU = parseInt(prompt("Aggiungi età"));
+      var nuovoStudente = {
+        nome : nomeU,
+        cognome : cognomeU,
+        eta: etaU
+      }
+      studenti.push(nuovoStudente);
+
+      var lista = "";
+      for (var i = 0; i < studenti.length; i++) {
+        for(var key in studenti[i]){
+          lista += "<br>" + studenti[i][key];
+        }
+      }
+      $("p.n3").append(lista);
     }
-  )
-  
+  );
   /* L’utente aggiunge un nuovo oggetto studente con: nome, cognome e età con 3 prompt*/
+
+
 
 });
